@@ -1,0 +1,7 @@
+import fs from 'node:fs';
+// Preserve the original independently addressable filenames as React route aliases.
+export const aliases={platform:'platform',tenants:'tenants','tenant-details':'tenant-details',clinics:'clinics','clinic-details':'clinic-details',branches:'branches','branch-details':'branch-details',patients:'patients','patient-details':'patient-details',doctors:'doctors','doctor-details':'doctor-details',schedules:'schedules',users:'users','user-details':'user-details',roles:'roles','role-details':'role-details',services:'services','service-prices':'prices',appointments:'appointments','appointment-details':'appointment-details',visits:'visits','visit-details':'visit-details',invoices:'invoices','invoice-details':'invoice-details',billing:'invoices',payments:'payments',refunds:'refunds','audit-logs':'audit',reports:'reports',settings:'settings'};
+for(const [file,route] of Object.entries(aliases))fs.writeFileSync(`${file}.html`,`<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>mediClinic</title><script>const destination=new URL('./index.html',location.href);destination.hash='/${route}'+location.search;location.replace(destination);</script></head><body><p>جاري فتح واجهة React… <a href="./index.html#/${route}">متابعة</a></p></body></html>
+`,'utf8');
+console.log(`Generated ${Object.keys(aliases).length} compatibility entry points.`);
