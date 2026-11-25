@@ -1,0 +1,15 @@
+import fs from 'node:fs';const p='src/core/ClinicSettings.jsx';let s=fs.readFileSync(p,'utf8');const rep=(a,b)=>{if(!s.includes(a))throw Error(a);s=s.replace(a,b);};
+rep('clinicId,clinicProfile}=useCore()','clinicId,clinicProfile,repository,actorId,data}=useCore()');
+rep("setMessage(tr('تمت مراجعة البيانات. هذه معاينة، ولم تُحفظ تغييرات على العيادة.','Details reviewed. This is a preview; clinic changes were not saved.'));","try{repository.update('clinics',clinicId,{...clinicProfile,...values},actorId);setMessage(tr('تم حفظ بيانات العيادة.','Clinic details saved.'));}catch(error){setMessage(error.message);}");
+rep("tr('تغييرات العرض لا تُحفظ.','Preview changes are not saved.')","tr('تُحفظ التغييرات في بيانات النموذج.','Changes are saved to mock data.')");
+rep("tr('مراجعة البيانات','Review details')","tr('حفظ البيانات','Save details')");
+rep("setMessage(tr('تمت مراجعة الحالة المختارة. لم تتغير حالة العيادة.','Selected status reviewed. The clinic status has not changed.'))","(repository.update('clinics',clinicId,{...clinicProfile,status},actorId),setMessage(tr('تم تحديث حالة العيادة.','Clinic status updated.')))");
+rep("tr('اختيار تجريبي فقط.','Demo selection only.')","tr('حالة التشغيل في بيانات النموذج.','Lifecycle status in mock data.')");
+rep("tr('مراجعة الحالة','Review status')","tr('حفظ الحالة','Save status')");
+rep("confirmed={()=>setMessage(tr('اكتملت معاينة تأكيد الإغلاق. العيادة ما زالت متاحة ولم تتغير بياناتها.','Closure confirmation preview complete. The clinic remains available and its data is unchanged.'))}","confirmed={()=>{repository.update('clinics',clinicId,{...clinicProfile,status:'closed'},actorId);setStatus('closed');setMessage(tr('تم إغلاق العيادة في بيانات النموذج مع الاحتفاظ بسجلاتها.','Clinic closed in mock data; its records are preserved.'));}}");
+rep("tr('في النظام الفعلي، سيؤدي إغلاق العيادة إلى تعطيل الاستخدام المعتاد مع الاحتفاظ ببياناتها.','In the live product, closing a clinic will disable normal usage while preserving its data.')","tr('سيتم تغيير حالة العيادة إلى مغلقة في بيانات النموذج مع الاحتفاظ بجميع سجلاتها.','The clinic status will change to Closed in mock data while all its records are preserved.')");
+rep("tr('هذه معاينة للتأكيد فقط. لن تتغير حالة العيادة أو بياناتها.','This is a confirmation preview. The clinic status and data will not change.')","tr('لن يتم حذف المرضى أو الزيارات أو الفواتير.','Patients, visits and invoices will be preserved.')");
+rep("tr('تأكيد الإغلاق التجريبي','Confirm demo closure')","tr('تأكيد الإغلاق','Confirm closure')");
+rep("tr('بيانات تجريبية · لا يتم تعديل سجلات فعلية.','Demo data · no live records are modified.')","tr('تُحفظ تغييرات النموذج في هذا المتصفح.','Mock changes are saved in this browser.')");
+rep("</div><aside>","</div><aside>");
+fs.writeFileSync(p,s);

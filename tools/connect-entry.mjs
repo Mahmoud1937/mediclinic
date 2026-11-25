@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+const p='src/core/Entry.jsx';let s=fs.readFileSync(p,'utf8');
+const replace=(a,b)=>{if(!s.includes(a))throw Error(`Missing ${a}`);s=s.replace(a,b);};
+replace('route,tr,setRegistration,setClinicId,setBranchId','route,tr,setRegistration,setClinicId,setBranchId,setActorId');
+replace("setRegistration(null);setClinicId('CL-001');setBranchId('');navigate('dashboard');","setRegistration(null);setClinicId('CL-001');setActorId('U-001');setBranchId('');navigate('dashboard');");
+replace('const {tr,setRegistration,setClinicId,setBranchId}=useCore();','const {tr,setRegistration,setClinicId,setBranchId,repository,setActorId}=useCore();');
+const a=s.indexOf('setRegistration({clinicId:');const b=s.indexOf("setOwner({name:'',email:'',password:'',confirm:''});navigate('onboarding');",a);
+if(a<0||b<0)throw Error('Registration handler boundary missing');
+s=s.slice(0,a)+"try{const result=repository.registerClinic({name:clinic.name.trim(),phone:clinic.phone,slug:clinic.slug},{fullName:owner.name.trim(),email:owner.email.trim()});setRegistration({clinicId:result.clinic.id,ownerName:result.user.fullName});setClinicId(result.clinic.id);setActorId(result.user.id);setBranchId('');}catch(error){setErrors({submit:error.message});return;}"+s.slice(b);
+replace('<form className="entry-form" onSubmit={submit}>','{errors.submit&&<p className="form-error" role="alert">{errors.submit}</p>}<form className="entry-form" onSubmit={submit}>');
+replace('const {clinicProfile,registration,tr}=useCore();','const {clinicProfile,tr,data,clinicId}=useCore();const counts={branch:data.branches.filter(r=>r.clinicId===clinicId).length,services:data.services.filter(r=>r.clinicId===clinicId).length,prices:data.servicePrices.filter(r=>r.clinicId===clinicId).length,doctors:data.doctorProfiles.filter(r=>r.clinicId===clinicId).length,staff:data.users.filter(r=>r.clinicId===clinicId).length};');
+replace("{registration?clinicProfile.name:tr('عيادة الشفاء','Al Shifa Clinic')}",'{clinicProfile.name}');
+replace("{tr('5 خطوات أساسية · معاينة تجريبية','5 essentials · demo preview')}","{tr('خطوات الإعداد · تحفظ في بيانات النموذج','Setup steps · saved in mock data')}");
+replace("<p>{task.description}</p>","<p>{task.description}</p><small>{counts[task.id]} {tr('سجل محفوظ','saved records')}</small>");
+replace("{tr('هذا مسار تجريبي؛ النماذج تعرض معاينة ولا تحفظ إعدادات فعلية.','This is a demo flow; forms preview entries without saving a clinic configuration.')}","{tr('تُحفظ الإعدادات في بيانات النموذج داخل هذا المتصفح.','Setup records are saved to mock data in this browser.')}");
+fs.writeFileSync(p,s);

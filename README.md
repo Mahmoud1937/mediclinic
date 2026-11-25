@@ -1,94 +1,67 @@
-# mediClinic — React Core Clinic Management Prototype
+# mediClinic clinic workspace
 
-واجهة SaaS عربية باتجاه RTL لإدارة العيادات، مبنية بمكونات **React** وCSS مخصص، مع بيانات تجريبية مترابطة وبدون Backend أو APIs.
+A bilingual Arabic/English React and Vite clinic management frontend for Egyptian multi-branch clinics. The interface was redesigned against `Clinic_Core_ERD_Final_Reviewed.pdf` (five pages, reviewed 25 November 2026).
 
-## التشغيل
+## Entry and setup
+
+- `/` displays Login. Any valid email format and nonempty sample password demonstrate the transition to the dashboard. No identity is verified.
+- `/register-clinic` is a two-step clinic/owner wizard with slug validation and password confirmation. Only clinic display details and the owner's name pass to the next screen in React state. Passwords are discarded.
+- `/onboarding` offers five setup tasks: branch, services, prices, doctors, staff. Start Setup opens the existing preview forms; Go to Dashboard opens the demo workspace.
+- The public routes have static directory entry files in the production output. Operational pages retain the existing hash routing, for example `/#/patients`.
+- No authentication flag, session, credentials, token, or registration record is stored. Operational demo routes remain directly accessible. Reloading clears registration display data. Local storage holds only language and clinic display preferences.
+
+## Run
 
 ```powershell
 npm.cmd install
 npm.cmd run dev
 ```
 
-افتح العنوان الذي يعرضه Vite، عادةً `http://127.0.0.1:5173`.
-
 ```powershell
+npm.cmd run lint
 npm.cmd run check
 npm.cmd run build
-npm.cmd run preview
 npm.cmd run test:browser
 ```
 
-The application uses React, React DOM, and Vite. No UI framework, Tailwind, Bootstrap, backend, or external assets are used. Node is required for development/build; the built `dist/` is a static site. Serve it over HTTP. The React version replaces the earlier direct-file vanilla prototype.
+`test:browser` uses locally installed Chrome or Edge and writes screenshots and a report to `.preview/`. The browser test may need permission to connect to Chrome's local DevTools port in a restricted environment.
 
-## Sources reviewed
+## Product structure
 
-1. **Clinic_Professional_ERD_Diagrams.pdf** — authoritative revised model, supplied subsequently. Its SaaS & Access, Doctors & Patients, and Appointments & Billing diagrams define the current UI relationships. Its Medical Core — Phase 2 diagram is excluded.
-2. **Clinic_Core_ERD.pdf** — the earlier core model, inspected before implementation and superseded by the professional diagrams.
-3. **Clinic_Management_System_Guide_AR.docx** — read for the broader architecture and operational requirements; the user's restricted core phase takes precedence over its broader medical scope and technology suggestions.
-4. **Clinic Core ERD.md / .html** — inspected as companions to the earlier PDF.
+- **Workspace:** daily operations, patients, appointments, visits.
+- **Care:** doctors, services and price history.
+- **Billing:** invoices and payments, with refunds inside invoice history.
+- **Staff & Access:** users and role permissions.
+- **Clinic:** branches and clinic settings.
+- Patient details hold visits, medical history, prescriptions, diagnostics, treatment plans, medical files and billing.
+- Doctor profiles hold professional information, education, experience, branch assignments, weekly hours and temporary exceptions.
+- The visit page is the clinical workspace. Invoice details keep original line prices, payments and refunds visible.
+- Clinic Settings includes general details, branches, lifecycle status (Active / Suspended / Closed), and a Danger Zone. The Close Clinic dialog requires the clinic name and previews confirmation without changing the clinic or deleting data.
+- Document requests collect type, instructions and expiry, then display a mock link. Opening the link in the same tab carries those values to the patient upload preview. It is not a secure or shareable production upload link.
+- Arabic uses RTL; English uses LTR. The language and clinic choice persist locally. Desktop tables become readable record cards on mobile.
 
-These documents were read from their original locations in the parent Downloads folder and were not changed.
+## Data and backend gaps
 
-## Architecture represented
+This repository has **no backend or API integration**. `src/data.js` is the earlier fictional dataset. `src/core/model.js` adapts it to the reviewed clinic model and adds a few explicitly fictional clinical records to demonstrate the redesigned screens. Data entry drawers review values only; they do not save records, take payments, send upload links, accept files or enforce permissions. The patient upload route is a mobile-friendly preview of the requested document flow, and it clearly states that files are not submitted. Clinic Owner and Branch Manager are included as mock roles, alongside Admin, Receptionist, Doctor and Accountant.
 
-| Revised ERD entities | UI |
-| --- | --- |
-| Tenants → Clinics → Branches | Separate platform dashboard, tenant lists/details, organizational lists and details |
-| Users → TenantUsers → UserRoleAssignments | Global accounts, tenant membership IDs, multiple roles, optional clinic and branch scope |
-| Roles → RolePermissions → Permissions | Role lists/details, eight permission groups, checkbox previews |
-| Doctors → DoctorSpecialties / DoctorBranches | Basic classification, multiple assigned branches, schedules, appointments, visits |
-| DoctorSchedules / DoctorScheduleExceptions | Weekly overview, searchable tables, editing, leave/holiday/exception forms |
-| Patients / PatientContacts / PatientGuardians / PatientIdentifiers | Tenant-owned basic files, contact/guardian/identifier summaries, operational tabs |
-| Services / ServicePrices | Tenant catalogue, default/branch/doctor pricing, validity dates |
-| Appointments / AppointmentStatusHistory | Day/week/month calendars, list, details and status history |
-| Visits | Appointment-linked visits and walk-in visits with independent patient/doctor/branch links |
-| Invoices / InvoiceItems | Patient, branch, optional visit, service lines, stored unit prices |
-| Payments / PaymentRefunds | Invoice payments and refunds linked to original payments |
-| AuditLogs | User/tenant/resource/action/time, searchable with filters |
+The fixture cannot supply every field in the reviewed ERD. For example, its patients lack national ID and passport values; most doctors lack education and experience records; appointment status history lacks actor and reason; service names in English are represented by service codes; and clinical records exist only for selected demo patients and visits. The new UI displays empty or unavailable values rather than implying that the missing data is stored.
 
-Patients and services remain **tenant-owned**, regardless of selected clinic. Branch-scoped operational screens filter appointments, doctors, schedules, visits, and finance. Selected tenant is always visible in the tenant workspace. This is visual isolation of demo datasets, not an authorization system.
-
-The brief asks for additional presentation information such as branch address/phone, list status badges, appointment source, visit arrival/end times, invoice date, and refund reason. Where absent from the abbreviated revised ERD, these are **demo display metadata**, not claims about database columns. Financial totals and report percentages only summarize the static records; no pricing, billing, or conflict engine is implemented. Invoice remaining balances exclude refunds, which are shown separately. Net collection subtracts refunds.
-
-## Screens and interactions
-
-30 React screens cover platform/tenant dashboards, tenants, clinics, branches, patients, doctors, users, roles, schedules, services/prices, appointments, visits, invoices, payments, refunds, audit logs, reports, settings, and their detail views.
-
-- Hash routes work on static hosts without rewrite rules, for example `#/patients` and `#/patient-details?id=P-001248&tenant=TN-001`.
-- Existing `.html` bookmarks redirect to the corresponding React screen. The legacy `billing.html` opens invoices.
-- Tenant/clinic/branch selectors, desktop sidebar collapse, usable mobile drawer, shared search, filters, pagination, and useful empty states.
-- Global search (`Ctrl/Cmd K`) by patient name, phone, MRN, doctor, appointment or invoice; the platform context searches tenants.
-- Working day/week/month calendar, date navigation, day drill-down, appointment details, visit states and walk-ins.
-- Add/edit/invite forms validate native fields and produce a review card; returning to edit preserves entered values.
-- Forms **do not create records, send invitations, take payments, or save organizational settings**. They explicitly describe this behavior.
-- Permission checkboxes preview selection without enforcing authorization.
-- Filtered CSV exports, invoice/report printing, recent activity dropdown, report period selection.
-- Sidebar/table-density preferences and selected context persist locally in the browser. Mock records remain static.
-- The demo day is **19 November 2026**, timezone `Africa/Cairo`. All people and transactions are fictional.
-
-No specialty modules, medical records, consultation forms, clinical observations, prescriptions, authentication, backend calls, or database access are included.
+The old HTML entry files still redirect legacy bookmarks into the React app. They no longer expose separate tenant, refund, schedule, or raw relationship modules in navigation.
 
 ## Source layout
 
 ```text
-src/
-  main.jsx               React entry
-  App.jsx                Shared sidebar/topbar/context and screen routing
-  store.jsx              React context, selected scope, preferences and navigation
-  data.js                One normalized, linked mock dataset
-  ui.jsx                 Shared accessible UI, tables, tabs, cards, CSV export
-  tables.jsx             Shared entity columns and operational tables
-  Dashboard.jsx          Platform and tenant dashboards
-  Lists.jsx              Entity lists
-  Details.jsx            Entity details and relationship tabs
-  Operations.jsx         Appointment calendars, visits and doctor schedules
-  ReportsSettings.jsx    Reports, settings and preferences
-  Modal.jsx              React-controlled forms, review cards and global search
-css/styles.css           Shared responsive RTL styles, printing, reduced motion
-tools/check.mjs          Structural and cross-tenant data-integrity checks
-tools/browser-check.mjs  Dependency-free Chrome/Edge smoke checks
-tools/generate-aliases.mjs  Rebuild compatibility HTML redirects
-vite.config.js           Static production build including old entry filenames
+src/core/App.jsx       Clinic shell, navigation, localization and routing
+src/core/Entry.jsx     Login, clinic registration and onboarding
+src/core/ClinicSettings.jsx  Clinic details, lifecycle review and closure confirmation
+src/core/DocumentRequest.jsx  Mock request and upload-link flow
+src/core/pages.jsx     Operational lists, patient and doctor profiles, clinical workspace, billing
+src/core/ui.jsx        Shared tables, status badges, tabs, empty states and preview drawers
+src/core/icons.jsx     Shared icon paths
+src/core/model.js      Adapter from existing fictional records to the reviewed model
+src/core/style.css     Responsive RTL/LTR design system
+src/core/entry.css     Public entry, setup, settings and typography refinements
+tools/lint.mjs         Syntax and interface model checks
+tools/check.mjs        Existing fixture integrity checks
+tools/browser-check.mjs  Browser routes, language, viewport and interaction smoke tests
 ```
-
-`npm run test:browser` requires locally installed Chrome or Edge, runs a headless browser and temporary local HTTP server, and writes screenshots/report under `.preview/`. It stops the browser and server when finished. Set `CHROME_PATH` to override the browser executable. The test has no npm browser dependencies. On Windows, `npm.cmd` avoids PowerShell execution-policy restrictions on `npm.ps1`.

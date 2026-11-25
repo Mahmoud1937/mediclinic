@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
+    "dev": "vite --configLoader runner --host 127.0.0.1",
+    "build": "vite build --configLoader runner",
     "preview": "vite preview --host 127.0.0.1",
+    "lint": "node tools/lint.mjs",
     "check": "node tools/check.mjs",
     "test:browser": "node tools/browser-check.mjs"
   },

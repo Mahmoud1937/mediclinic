@@ -1,0 +1,2306 @@
+{
+  "clinics": [
+    {
+      "id": "CL-001",
+      "name": "عيادة النور",
+      "slug": "al-nour-clinic",
+      "phone": "0233360011",
+      "status": "active",
+      "createdAt": "2026-03-12"
+    },
+    {
+      "id": "CL-002",
+      "name": "مركز النور للرعاية",
+      "slug": "al-nour-care",
+      "phone": "0224020033",
+      "status": "active",
+      "createdAt": "2026-03-12"
+    },
+    {
+      "id": "CL-003",
+      "name": "مركز الحياة",
+      "slug": "al-hayat",
+      "phone": "0224020011",
+      "status": "active",
+      "createdAt": "2026-06-08"
+    },
+    {
+      "id": "CL-004",
+      "name": "عيادة السلام",
+      "slug": "al-salam",
+      "phone": "0237400011",
+      "status": "closed",
+      "createdAt": "2026-10-02"
+    }
+  ],
+  "branches": [
+    {
+      "id": "BR-001",
+      "clinicId": "CL-001",
+      "name": "الدقي",
+      "address": "٢٤ شارع التحرير، الدقي، الجيزة",
+      "phone": "0233360011",
+      "createdAt": "2026-03-15",
+      "branchManagerUserId": "U-001",
+      "isActive": true
+    },
+    {
+      "id": "BR-002",
+      "clinicId": "CL-001",
+      "name": "المهندسين",
+      "address": "١٨ شارع جامعة الدول العربية، الجيزة",
+      "phone": "0233450022",
+      "createdAt": "2026-03-15",
+      "branchManagerUserId": null,
+      "isActive": true
+    },
+    {
+      "id": "BR-003",
+      "clinicId": "CL-002",
+      "name": "مدينة نصر",
+      "address": "٣٢ شارع عباس العقاد، القاهرة",
+      "phone": "0224020033",
+      "createdAt": "2026-03-15",
+      "branchManagerUserId": null,
+      "isActive": true
+    },
+    {
+      "id": "BR-004",
+      "clinicId": "CL-003",
+      "name": "مصر الجديدة",
+      "address": "١٠ شارع الأهرام، القاهرة",
+      "phone": "0224020011",
+      "createdAt": "2026-03-15",
+      "branchManagerUserId": null,
+      "isActive": true
+    },
+    {
+      "id": "BR-005",
+      "clinicId": "CL-004",
+      "name": "الهرم",
+      "address": "٤٥ شارع الهرم، الجيزة",
+      "phone": "0237400011",
+      "createdAt": "2026-03-15",
+      "branchManagerUserId": null,
+      "isActive": false
+    }
+  ],
+  "users": [
+    {
+      "id": "U-001",
+      "clinicId": "CL-001",
+      "email": "ahmed@alnour.example",
+      "roleId": "R-005",
+      "isActive": true,
+      "createdAt": "2026-10-01",
+      "fullName": "أحمد محمد"
+    },
+    {
+      "id": "U-002",
+      "clinicId": "CL-001",
+      "email": "mariam@alnour.example",
+      "roleId": "R-002",
+      "isActive": true,
+      "createdAt": "2026-10-01",
+      "fullName": "مريم حسن"
+    },
+    {
+      "id": "U-003",
+      "clinicId": "CL-001",
+      "email": "khaled@alnour.example",
+      "roleId": "R-003",
+      "isActive": true,
+      "createdAt": "2026-10-01",
+      "fullName": "د. خالد سمير"
+    },
+    {
+      "id": "U-004",
+      "clinicId": "CL-001",
+      "email": "adel@alnour.example",
+      "roleId": "R-003",
+      "isActive": true,
+      "createdAt": "2026-10-01",
+      "fullName": "د. أحمد عادل"
+    },
+    {
+      "id": "U-005",
+      "clinicId": "CL-002",
+      "email": "sara@alnour.example",
+      "roleId": "R-003",
+      "isActive": true,
+      "createdAt": "2026-10-01",
+      "fullName": "د. سارة محمود"
+    },
+    {
+      "id": "U-006",
+      "clinicId": "CL-001",
+      "email": "omar@alnour.example",
+      "roleId": "R-004",
+      "isActive": false,
+      "createdAt": "2026-10-01",
+      "fullName": "عمر إبراهيم"
+    },
+    {
+      "id": "U-007",
+      "clinicId": "CL-003",
+      "email": "youssef@alhayat.example",
+      "roleId": "R-003",
+      "isActive": true,
+      "createdAt": "2026-10-01",
+      "fullName": "د. يوسف حسن"
+    },
+    {
+      "id": "U-008",
+      "clinicId": "CL-004",
+      "email": "heba@alsalam.example",
+      "roleId": "R-003",
+      "isActive": false,
+      "createdAt": "2026-10-01",
+      "fullName": "د. هبة سالم"
+    }
+  ],
+  "branchUsers": [
+    {
+      "id": "BU-U-001-BR-001",
+      "clinicId": "CL-001",
+      "userId": "U-001",
+      "branchId": "BR-001",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-001-BR-002",
+      "clinicId": "CL-001",
+      "userId": "U-001",
+      "branchId": "BR-002",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-002-BR-001",
+      "clinicId": "CL-001",
+      "userId": "U-002",
+      "branchId": "BR-001",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-003-BR-001",
+      "clinicId": "CL-001",
+      "userId": "U-003",
+      "branchId": "BR-001",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-003-BR-002",
+      "clinicId": "CL-001",
+      "userId": "U-003",
+      "branchId": "BR-002",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-004-BR-002",
+      "clinicId": "CL-001",
+      "userId": "U-004",
+      "branchId": "BR-002",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-005-BR-003",
+      "clinicId": "CL-002",
+      "userId": "U-005",
+      "branchId": "BR-003",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-006-BR-001",
+      "clinicId": "CL-001",
+      "userId": "U-006",
+      "branchId": "BR-001",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-006-BR-002",
+      "clinicId": "CL-001",
+      "userId": "U-006",
+      "branchId": "BR-002",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-007-BR-004",
+      "clinicId": "CL-003",
+      "userId": "U-007",
+      "branchId": "BR-004",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    },
+    {
+      "id": "BU-U-008-BR-005",
+      "clinicId": "CL-004",
+      "userId": "U-008",
+      "branchId": "BR-005",
+      "isActive": true,
+      "assignedAt": "2026-03-15"
+    }
+  ],
+  "roles": [
+    {
+      "id": "R-001",
+      "name": "مدير العيادة",
+      "code": "ADMIN"
+    },
+    {
+      "id": "R-002",
+      "name": "موظف استقبال",
+      "code": "RECEPTIONIST"
+    },
+    {
+      "id": "R-003",
+      "name": "طبيب",
+      "code": "DOCTOR"
+    },
+    {
+      "id": "R-004",
+      "name": "محاسب",
+      "code": "ACCOUNTANT"
+    },
+    {
+      "id": "R-005",
+      "name": "مالك العيادة",
+      "code": "CLINIC_OWNER"
+    },
+    {
+      "id": "R-006",
+      "name": "مدير الفرع",
+      "code": "BRANCH_MANAGER"
+    }
+  ],
+  "permissions": [
+    {
+      "id": "patients.read",
+      "code": "patients.read",
+      "description": "patients.read"
+    },
+    {
+      "id": "patients.create",
+      "code": "patients.create",
+      "description": "patients.create"
+    },
+    {
+      "id": "patients.update",
+      "code": "patients.update",
+      "description": "patients.update"
+    },
+    {
+      "id": "patients.delete",
+      "code": "patients.delete",
+      "description": "patients.delete"
+    },
+    {
+      "id": "doctors.read",
+      "code": "doctors.read",
+      "description": "doctors.read"
+    },
+    {
+      "id": "doctors.create",
+      "code": "doctors.create",
+      "description": "doctors.create"
+    },
+    {
+      "id": "doctors.update",
+      "code": "doctors.update",
+      "description": "doctors.update"
+    },
+    {
+      "id": "doctors.delete",
+      "code": "doctors.delete",
+      "description": "doctors.delete"
+    },
+    {
+      "id": "appointments.read",
+      "code": "appointments.read",
+      "description": "appointments.read"
+    },
+    {
+      "id": "appointments.create",
+      "code": "appointments.create",
+      "description": "appointments.create"
+    },
+    {
+      "id": "appointments.update",
+      "code": "appointments.update",
+      "description": "appointments.update"
+    },
+    {
+      "id": "appointments.delete",
+      "code": "appointments.delete",
+      "description": "appointments.delete"
+    },
+    {
+      "id": "visits.read",
+      "code": "visits.read",
+      "description": "visits.read"
+    },
+    {
+      "id": "visits.create",
+      "code": "visits.create",
+      "description": "visits.create"
+    },
+    {
+      "id": "visits.update",
+      "code": "visits.update",
+      "description": "visits.update"
+    },
+    {
+      "id": "visits.delete",
+      "code": "visits.delete",
+      "description": "visits.delete"
+    },
+    {
+      "id": "billing.read",
+      "code": "billing.read",
+      "description": "billing.read"
+    },
+    {
+      "id": "billing.create",
+      "code": "billing.create",
+      "description": "billing.create"
+    },
+    {
+      "id": "billing.update",
+      "code": "billing.update",
+      "description": "billing.update"
+    },
+    {
+      "id": "billing.delete",
+      "code": "billing.delete",
+      "description": "billing.delete"
+    },
+    {
+      "id": "reports.read",
+      "code": "reports.read",
+      "description": "reports.read"
+    },
+    {
+      "id": "reports.create",
+      "code": "reports.create",
+      "description": "reports.create"
+    },
+    {
+      "id": "reports.update",
+      "code": "reports.update",
+      "description": "reports.update"
+    },
+    {
+      "id": "reports.delete",
+      "code": "reports.delete",
+      "description": "reports.delete"
+    },
+    {
+      "id": "settings.read",
+      "code": "settings.read",
+      "description": "settings.read"
+    },
+    {
+      "id": "settings.create",
+      "code": "settings.create",
+      "description": "settings.create"
+    },
+    {
+      "id": "settings.update",
+      "code": "settings.update",
+      "description": "settings.update"
+    },
+    {
+      "id": "settings.delete",
+      "code": "settings.delete",
+      "description": "settings.delete"
+    },
+    {
+      "id": "users.read",
+      "code": "users.read",
+      "description": "users.read"
+    },
+    {
+      "id": "users.create",
+      "code": "users.create",
+      "description": "users.create"
+    },
+    {
+      "id": "users.update",
+      "code": "users.update",
+      "description": "users.update"
+    },
+    {
+      "id": "users.delete",
+      "code": "users.delete",
+      "description": "users.delete"
+    }
+  ],
+  "rolePermissions": [
+    {
+      "id": "R-001-patients.read",
+      "roleId": "R-001",
+      "permissionId": "patients.read"
+    },
+    {
+      "id": "R-001-patients.create",
+      "roleId": "R-001",
+      "permissionId": "patients.create"
+    },
+    {
+      "id": "R-001-patients.update",
+      "roleId": "R-001",
+      "permissionId": "patients.update"
+    },
+    {
+      "id": "R-001-patients.delete",
+      "roleId": "R-001",
+      "permissionId": "patients.delete"
+    },
+    {
+      "id": "R-001-doctors.read",
+      "roleId": "R-001",
+      "permissionId": "doctors.read"
+    },
+    {
+      "id": "R-001-doctors.create",
+      "roleId": "R-001",
+      "permissionId": "doctors.create"
+    },
+    {
+      "id": "R-001-doctors.update",
+      "roleId": "R-001",
+      "permissionId": "doctors.update"
+    },
+    {
+      "id": "R-001-doctors.delete",
+      "roleId": "R-001",
+      "permissionId": "doctors.delete"
+    },
+    {
+      "id": "R-001-appointments.read",
+      "roleId": "R-001",
+      "permissionId": "appointments.read"
+    },
+    {
+      "id": "R-001-appointments.create",
+      "roleId": "R-001",
+      "permissionId": "appointments.create"
+    },
+    {
+      "id": "R-001-appointments.update",
+      "roleId": "R-001",
+      "permissionId": "appointments.update"
+    },
+    {
+      "id": "R-001-appointments.delete",
+      "roleId": "R-001",
+      "permissionId": "appointments.delete"
+    },
+    {
+      "id": "R-001-visits.read",
+      "roleId": "R-001",
+      "permissionId": "visits.read"
+    },
+    {
+      "id": "R-001-visits.create",
+      "roleId": "R-001",
+      "permissionId": "visits.create"
+    },
+    {
+      "id": "R-001-visits.update",
+      "roleId": "R-001",
+      "permissionId": "visits.update"
+    },
+    {
+      "id": "R-001-visits.delete",
+      "roleId": "R-001",
+      "permissionId": "visits.delete"
+    },
+    {
+      "id": "R-001-billing.read",
+      "roleId": "R-001",
+      "permissionId": "billing.read"
+    },
+    {
+      "id": "R-001-billing.create",
+      "roleId": "R-001",
+      "permissionId": "billing.create"
+    },
+    {
+      "id": "R-001-billing.update",
+      "roleId": "R-001",
+      "permissionId": "billing.update"
+    },
+    {
+      "id": "R-001-billing.delete",
+      "roleId": "R-001",
+      "permissionId": "billing.delete"
+    },
+    {
+      "id": "R-001-reports.read",
+      "roleId": "R-001",
+      "permissionId": "reports.read"
+    },
+    {
+      "id": "R-001-reports.create",
+      "roleId": "R-001",
+      "permissionId": "reports.create"
+    },
+    {
+      "id": "R-001-reports.update",
+      "roleId": "R-001",
+      "permissionId": "reports.update"
+    },
+    {
+      "id": "R-001-reports.delete",
+      "roleId": "R-001",
+      "permissionId": "reports.delete"
+    },
+    {
+      "id": "R-001-settings.read",
+      "roleId": "R-001",
+      "permissionId": "settings.read"
+    },
+    {
+      "id": "R-001-settings.create",
+      "roleId": "R-001",
+      "permissionId": "settings.create"
+    },
+    {
+      "id": "R-001-settings.update",
+      "roleId": "R-001",
+      "permissionId": "settings.update"
+    },
+    {
+      "id": "R-001-settings.delete",
+      "roleId": "R-001",
+      "permissionId": "settings.delete"
+    },
+    {
+      "id": "R-001-users.read",
+      "roleId": "R-001",
+      "permissionId": "users.read"
+    },
+    {
+      "id": "R-001-users.create",
+      "roleId": "R-001",
+      "permissionId": "users.create"
+    },
+    {
+      "id": "R-001-users.update",
+      "roleId": "R-001",
+      "permissionId": "users.update"
+    },
+    {
+      "id": "R-001-users.delete",
+      "roleId": "R-001",
+      "permissionId": "users.delete"
+    },
+    {
+      "id": "R-002-patients.read",
+      "roleId": "R-002",
+      "permissionId": "patients.read"
+    },
+    {
+      "id": "R-002-patients.create",
+      "roleId": "R-002",
+      "permissionId": "patients.create"
+    },
+    {
+      "id": "R-002-patients.update",
+      "roleId": "R-002",
+      "permissionId": "patients.update"
+    },
+    {
+      "id": "R-002-appointments.read",
+      "roleId": "R-002",
+      "permissionId": "appointments.read"
+    },
+    {
+      "id": "R-002-appointments.create",
+      "roleId": "R-002",
+      "permissionId": "appointments.create"
+    },
+    {
+      "id": "R-002-appointments.update",
+      "roleId": "R-002",
+      "permissionId": "appointments.update"
+    },
+    {
+      "id": "R-002-visits.read",
+      "roleId": "R-002",
+      "permissionId": "visits.read"
+    },
+    {
+      "id": "R-002-visits.create",
+      "roleId": "R-002",
+      "permissionId": "visits.create"
+    },
+    {
+      "id": "R-002-visits.update",
+      "roleId": "R-002",
+      "permissionId": "visits.update"
+    },
+    {
+      "id": "R-003-patients.read",
+      "roleId": "R-003",
+      "permissionId": "patients.read"
+    },
+    {
+      "id": "R-003-patients.create",
+      "roleId": "R-003",
+      "permissionId": "patients.create"
+    },
+    {
+      "id": "R-003-patients.update",
+      "roleId": "R-003",
+      "permissionId": "patients.update"
+    },
+    {
+      "id": "R-003-appointments.read",
+      "roleId": "R-003",
+      "permissionId": "appointments.read"
+    },
+    {
+      "id": "R-003-appointments.create",
+      "roleId": "R-003",
+      "permissionId": "appointments.create"
+    },
+    {
+      "id": "R-003-appointments.update",
+      "roleId": "R-003",
+      "permissionId": "appointments.update"
+    },
+    {
+      "id": "R-003-visits.read",
+      "roleId": "R-003",
+      "permissionId": "visits.read"
+    },
+    {
+      "id": "R-003-visits.create",
+      "roleId": "R-003",
+      "permissionId": "visits.create"
+    },
+    {
+      "id": "R-003-visits.update",
+      "roleId": "R-003",
+      "permissionId": "visits.update"
+    },
+    {
+      "id": "R-004-billing.read",
+      "roleId": "R-004",
+      "permissionId": "billing.read"
+    },
+    {
+      "id": "R-004-billing.create",
+      "roleId": "R-004",
+      "permissionId": "billing.create"
+    },
+    {
+      "id": "R-004-billing.update",
+      "roleId": "R-004",
+      "permissionId": "billing.update"
+    },
+    {
+      "id": "R-004-reports.read",
+      "roleId": "R-004",
+      "permissionId": "reports.read"
+    },
+    {
+      "id": "R-004-reports.create",
+      "roleId": "R-004",
+      "permissionId": "reports.create"
+    },
+    {
+      "id": "R-004-reports.update",
+      "roleId": "R-004",
+      "permissionId": "reports.update"
+    },
+    {
+      "id": "R-005-patients.read",
+      "roleId": "R-005",
+      "permissionId": "patients.read"
+    },
+    {
+      "id": "R-005-patients.create",
+      "roleId": "R-005",
+      "permissionId": "patients.create"
+    },
+    {
+      "id": "R-005-patients.update",
+      "roleId": "R-005",
+      "permissionId": "patients.update"
+    },
+    {
+      "id": "R-005-patients.delete",
+      "roleId": "R-005",
+      "permissionId": "patients.delete"
+    },
+    {
+      "id": "R-005-doctors.read",
+      "roleId": "R-005",
+      "permissionId": "doctors.read"
+    },
+    {
+      "id": "R-005-doctors.create",
+      "roleId": "R-005",
+      "permissionId": "doctors.create"
+    },
+    {
+      "id": "R-005-doctors.update",
+      "roleId": "R-005",
+      "permissionId": "doctors.update"
+    },
+    {
+      "id": "R-005-doctors.delete",
+      "roleId": "R-005",
+      "permissionId": "doctors.delete"
+    },
+    {
+      "id": "R-005-appointments.read",
+      "roleId": "R-005",
+      "permissionId": "appointments.read"
+    },
+    {
+      "id": "R-005-appointments.create",
+      "roleId": "R-005",
+      "permissionId": "appointments.create"
+    },
+    {
+      "id": "R-005-appointments.update",
+      "roleId": "R-005",
+      "permissionId": "appointments.update"
+    },
+    {
+      "id": "R-005-appointments.delete",
+      "roleId": "R-005",
+      "permissionId": "appointments.delete"
+    },
+    {
+      "id": "R-005-visits.read",
+      "roleId": "R-005",
+      "permissionId": "visits.read"
+    },
+    {
+      "id": "R-005-visits.create",
+      "roleId": "R-005",
+      "permissionId": "visits.create"
+    },
+    {
+      "id": "R-005-visits.update",
+      "roleId": "R-005",
+      "permissionId": "visits.update"
+    },
+    {
+      "id": "R-005-visits.delete",
+      "roleId": "R-005",
+      "permissionId": "visits.delete"
+    },
+    {
+      "id": "R-005-billing.read",
+      "roleId": "R-005",
+      "permissionId": "billing.read"
+    },
+    {
+      "id": "R-005-billing.create",
+      "roleId": "R-005",
+      "permissionId": "billing.create"
+    },
+    {
+      "id": "R-005-billing.update",
+      "roleId": "R-005",
+      "permissionId": "billing.update"
+    },
+    {
+      "id": "R-005-billing.delete",
+      "roleId": "R-005",
+      "permissionId": "billing.delete"
+    },
+    {
+      "id": "R-005-reports.read",
+      "roleId": "R-005",
+      "permissionId": "reports.read"
+    },
+    {
+      "id": "R-005-reports.create",
+      "roleId": "R-005",
+      "permissionId": "reports.create"
+    },
+    {
+      "id": "R-005-reports.update",
+      "roleId": "R-005",
+      "permissionId": "reports.update"
+    },
+    {
+      "id": "R-005-reports.delete",
+      "roleId": "R-005",
+      "permissionId": "reports.delete"
+    },
+    {
+      "id": "R-005-settings.read",
+      "roleId": "R-005",
+      "permissionId": "settings.read"
+    },
+    {
+      "id": "R-005-settings.create",
+      "roleId": "R-005",
+      "permissionId": "settings.create"
+    },
+    {
+      "id": "R-005-settings.update",
+      "roleId": "R-005",
+      "permissionId": "settings.update"
+    },
+    {
+      "id": "R-005-settings.delete",
+      "roleId": "R-005",
+      "permissionId": "settings.delete"
+    },
+    {
+      "id": "R-005-users.read",
+      "roleId": "R-005",
+      "permissionId": "users.read"
+    },
+    {
+      "id": "R-005-users.create",
+      "roleId": "R-005",
+      "permissionId": "users.create"
+    },
+    {
+      "id": "R-005-users.update",
+      "roleId": "R-005",
+      "permissionId": "users.update"
+    },
+    {
+      "id": "R-005-users.delete",
+      "roleId": "R-005",
+      "permissionId": "users.delete"
+    },
+    {
+      "id": "R-006-patients.read",
+      "roleId": "R-006",
+      "permissionId": "patients.read"
+    },
+    {
+      "id": "R-006-patients.create",
+      "roleId": "R-006",
+      "permissionId": "patients.create"
+    },
+    {
+      "id": "R-006-patients.update",
+      "roleId": "R-006",
+      "permissionId": "patients.update"
+    },
+    {
+      "id": "R-006-appointments.read",
+      "roleId": "R-006",
+      "permissionId": "appointments.read"
+    },
+    {
+      "id": "R-006-appointments.create",
+      "roleId": "R-006",
+      "permissionId": "appointments.create"
+    },
+    {
+      "id": "R-006-appointments.update",
+      "roleId": "R-006",
+      "permissionId": "appointments.update"
+    },
+    {
+      "id": "R-006-visits.read",
+      "roleId": "R-006",
+      "permissionId": "visits.read"
+    },
+    {
+      "id": "R-006-visits.create",
+      "roleId": "R-006",
+      "permissionId": "visits.create"
+    },
+    {
+      "id": "R-006-visits.update",
+      "roleId": "R-006",
+      "permissionId": "visits.update"
+    }
+  ],
+  "specialties": [
+    {
+      "id": "SP-001",
+      "code": "GENERAL",
+      "nameAr": "طب عام",
+      "nameEn": "General medicine"
+    }
+  ],
+  "patients": [
+    {
+      "id": "P-001248",
+      "clinicId": "CL-001",
+      "mrn": "P-001248",
+      "phone": "01012345678",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1987-01-15",
+      "gender": "ذكر",
+      "createdAt": "2026-08-14",
+      "fullName": "محمد علي"
+    },
+    {
+      "id": "P-001247",
+      "clinicId": "CL-001",
+      "mrn": "P-001247",
+      "phone": "01012345679",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1988-02-15",
+      "gender": "أنثى",
+      "createdAt": "2026-08-14",
+      "fullName": "سارة حسين"
+    },
+    {
+      "id": "P-001246",
+      "clinicId": "CL-001",
+      "mrn": "P-001246",
+      "phone": "01012345680",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1989-03-15",
+      "gender": "ذكر",
+      "createdAt": "2026-08-14",
+      "fullName": "أحمد محمود"
+    },
+    {
+      "id": "P-001245",
+      "clinicId": "CL-001",
+      "mrn": "P-001245",
+      "phone": "01012345681",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1990-04-15",
+      "gender": "أنثى",
+      "createdAt": "2026-08-14",
+      "fullName": "نور خالد"
+    },
+    {
+      "id": "P-001244",
+      "clinicId": "CL-001",
+      "mrn": "P-001244",
+      "phone": "01012345682",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1991-05-15",
+      "gender": "ذكر",
+      "createdAt": "2026-08-14",
+      "fullName": "عمر مصطفى"
+    },
+    {
+      "id": "P-001243",
+      "clinicId": "CL-001",
+      "mrn": "P-001243",
+      "phone": "01012345683",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1992-06-15",
+      "gender": "أنثى",
+      "createdAt": "2026-08-14",
+      "fullName": "فاطمة حسن"
+    },
+    {
+      "id": "P-001242",
+      "clinicId": "CL-001",
+      "mrn": "P-001242",
+      "phone": "01012345684",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1993-07-15",
+      "gender": "ذكر",
+      "createdAt": "2026-08-14",
+      "fullName": "يوسف إبراهيم"
+    },
+    {
+      "id": "P-001241",
+      "clinicId": "CL-001",
+      "mrn": "P-001241",
+      "phone": "01012345685",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1994-08-15",
+      "gender": "أنثى",
+      "createdAt": "2026-08-14",
+      "fullName": "مريم عادل"
+    },
+    {
+      "id": "P-001240",
+      "clinicId": "CL-001",
+      "mrn": "P-001240",
+      "phone": "01012345686",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1995-01-15",
+      "gender": "ذكر",
+      "createdAt": "2026-08-14",
+      "fullName": "علي حسن"
+    },
+    {
+      "id": "P-001239",
+      "clinicId": "CL-001",
+      "mrn": "P-001239",
+      "phone": "01012345687",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1996-02-15",
+      "gender": "أنثى",
+      "createdAt": "2026-08-14",
+      "fullName": "آية سمير"
+    },
+    {
+      "id": "P-001238",
+      "clinicId": "CL-001",
+      "mrn": "P-001238",
+      "phone": "01012345688",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1997-03-15",
+      "gender": "ذكر",
+      "createdAt": "2026-08-14",
+      "fullName": "حسن أحمد"
+    },
+    {
+      "id": "P-001237",
+      "clinicId": "CL-001",
+      "mrn": "P-001237",
+      "phone": "01012345689",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1998-04-15",
+      "gender": "أنثى",
+      "createdAt": "2026-08-14",
+      "fullName": "سلمى ياسر"
+    },
+    {
+      "id": "P-002001",
+      "clinicId": "CL-002",
+      "mrn": "P-002001",
+      "phone": "01123456789",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1992-04-19",
+      "gender": "أنثى",
+      "createdAt": "2026-08-14",
+      "fullName": "ليلى جمال"
+    },
+    {
+      "id": "P-003001",
+      "clinicId": "CL-003",
+      "mrn": "P-003001",
+      "phone": "01234567890",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1990-08-11",
+      "gender": "ذكر",
+      "createdAt": "2026-08-14",
+      "fullName": "كريم عبد الله"
+    },
+    {
+      "id": "P-004001",
+      "clinicId": "CL-004",
+      "mrn": "P-004001",
+      "phone": "01545678901",
+      "nationalId": null,
+      "passportNumber": null,
+      "birthDate": "1998-03-21",
+      "gender": "أنثى",
+      "createdAt": "2026-08-14",
+      "fullName": "رنا سعيد"
+    }
+  ],
+  "patientContacts": [
+    {
+      "id": "PC-01",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "name": "منى علي",
+      "phone": "01112345678",
+      "relationship": "أخت",
+      "isGuardian": false,
+      "isEmergencyContact": true
+    },
+    {
+      "id": "PG-01",
+      "clinicId": "CL-001",
+      "patientId": "P-001245",
+      "name": "محمد علي",
+      "phone": "01012345678",
+      "relationship": "ولي أمر",
+      "isGuardian": true,
+      "isEmergencyContact": false
+    }
+  ],
+  "doctorProfiles": [
+    {
+      "id": "D-001",
+      "clinicId": "CL-001",
+      "userId": "U-003",
+      "specialtyId": "SP-001",
+      "licenseNumber": "EG-001239",
+      "clinicalRank": "consultant",
+      "academicTitle": "lecturer",
+      "bio": "",
+      "isActive": true
+    },
+    {
+      "id": "D-002",
+      "clinicId": "CL-001",
+      "userId": "U-004",
+      "specialtyId": "SP-001",
+      "licenseNumber": "EG-002239",
+      "clinicalRank": "specialist",
+      "academicTitle": null,
+      "bio": "",
+      "isActive": true
+    },
+    {
+      "id": "D-003",
+      "clinicId": "CL-002",
+      "userId": "U-005",
+      "specialtyId": "SP-001",
+      "licenseNumber": "EG-003239",
+      "clinicalRank": "resident",
+      "academicTitle": null,
+      "bio": "",
+      "isActive": true
+    },
+    {
+      "id": "D-004",
+      "clinicId": "CL-003",
+      "userId": "U-007",
+      "specialtyId": "SP-001",
+      "licenseNumber": "EG-004239",
+      "clinicalRank": "consultant",
+      "academicTitle": null,
+      "bio": "",
+      "isActive": true
+    },
+    {
+      "id": "D-005",
+      "clinicId": "CL-004",
+      "userId": "U-008",
+      "specialtyId": "SP-001",
+      "licenseNumber": "EG-005239",
+      "clinicalRank": "specialist",
+      "academicTitle": null,
+      "bio": "",
+      "isActive": false
+    }
+  ],
+  "services": [
+    {
+      "id": "S-101",
+      "clinicId": "CL-001",
+      "code": "CONS-1",
+      "nameAr": "كشف عام",
+      "nameEn": "CONS-1",
+      "durationMinutes": 30,
+      "isActive": true
+    },
+    {
+      "id": "S-101@CL-002",
+      "clinicId": "CL-002",
+      "code": "CONS-1",
+      "nameAr": "كشف عام",
+      "nameEn": "CONS-1",
+      "durationMinutes": 30,
+      "isActive": true
+    },
+    {
+      "id": "S-102",
+      "clinicId": "CL-001",
+      "code": "FUP-1",
+      "nameAr": "متابعة",
+      "nameEn": "FUP-1",
+      "durationMinutes": 20,
+      "isActive": true
+    },
+    {
+      "id": "S-102@CL-002",
+      "clinicId": "CL-002",
+      "code": "FUP-1",
+      "nameAr": "متابعة",
+      "nameEn": "FUP-1",
+      "durationMinutes": 20,
+      "isActive": true
+    },
+    {
+      "id": "S-103",
+      "clinicId": "CL-001",
+      "code": "ADV-1",
+      "nameAr": "استشارة عامة",
+      "nameEn": "ADV-1",
+      "durationMinutes": 30,
+      "isActive": true
+    },
+    {
+      "id": "S-103@CL-002",
+      "clinicId": "CL-002",
+      "code": "ADV-1",
+      "nameAr": "استشارة عامة",
+      "nameEn": "ADV-1",
+      "durationMinutes": 30,
+      "isActive": true
+    },
+    {
+      "id": "S-301",
+      "clinicId": "CL-003",
+      "code": "CONS-3",
+      "nameAr": "كشف عام",
+      "nameEn": "CONS-3",
+      "durationMinutes": 30,
+      "isActive": true
+    },
+    {
+      "id": "S-302",
+      "clinicId": "CL-003",
+      "code": "FUP-3",
+      "nameAr": "متابعة",
+      "nameEn": "FUP-3",
+      "durationMinutes": 20,
+      "isActive": true
+    },
+    {
+      "id": "S-303",
+      "clinicId": "CL-003",
+      "code": "ADV-3",
+      "nameAr": "استشارة عامة",
+      "nameEn": "ADV-3",
+      "durationMinutes": 30,
+      "isActive": true
+    },
+    {
+      "id": "S-401",
+      "clinicId": "CL-004",
+      "code": "CONS-4",
+      "nameAr": "كشف عام",
+      "nameEn": "CONS-4",
+      "durationMinutes": 30,
+      "isActive": true
+    },
+    {
+      "id": "S-402",
+      "clinicId": "CL-004",
+      "code": "FUP-4",
+      "nameAr": "متابعة",
+      "nameEn": "FUP-4",
+      "durationMinutes": 20,
+      "isActive": true
+    },
+    {
+      "id": "S-403",
+      "clinicId": "CL-004",
+      "code": "ADV-4",
+      "nameAr": "استشارة عامة",
+      "nameEn": "ADV-4",
+      "durationMinutes": 30,
+      "isActive": true
+    }
+  ],
+  "servicePrices": [
+    {
+      "id": "PRICE-1@CL-001",
+      "clinicId": "CL-001",
+      "serviceId": "S-101",
+      "branchId": null,
+      "price": 400,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-1@CL-002",
+      "clinicId": "CL-002",
+      "serviceId": "S-101@CL-002",
+      "branchId": null,
+      "price": 400,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-2@CL-001",
+      "clinicId": "CL-001",
+      "serviceId": "S-102",
+      "branchId": null,
+      "price": 200,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-2@CL-002",
+      "clinicId": "CL-002",
+      "serviceId": "S-102@CL-002",
+      "branchId": null,
+      "price": 200,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-3@CL-001",
+      "clinicId": "CL-001",
+      "serviceId": "S-103",
+      "branchId": null,
+      "price": 300,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-3@CL-002",
+      "clinicId": "CL-002",
+      "serviceId": "S-103@CL-002",
+      "branchId": null,
+      "price": 300,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-4@CL-003",
+      "clinicId": "CL-003",
+      "serviceId": "S-301",
+      "branchId": null,
+      "price": 400,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-5@CL-003",
+      "clinicId": "CL-003",
+      "serviceId": "S-302",
+      "branchId": null,
+      "price": 200,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-6@CL-003",
+      "clinicId": "CL-003",
+      "serviceId": "S-303",
+      "branchId": null,
+      "price": 300,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-7@CL-004",
+      "clinicId": "CL-004",
+      "serviceId": "S-401",
+      "branchId": null,
+      "price": 400,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-8@CL-004",
+      "clinicId": "CL-004",
+      "serviceId": "S-402",
+      "branchId": null,
+      "price": 200,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-9@CL-004",
+      "clinicId": "CL-004",
+      "serviceId": "S-403",
+      "branchId": null,
+      "price": 300,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-10@CL-001",
+      "clinicId": "CL-001",
+      "serviceId": "S-101",
+      "branchId": "BR-002",
+      "price": 350,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": null
+    },
+    {
+      "id": "PRICE-11@CL-001",
+      "clinicId": "CL-001",
+      "serviceId": "S-101",
+      "branchId": "BR-001",
+      "price": 400,
+      "validFrom": "2026-01-01",
+      "validTo": null,
+      "doctorProfileId": "D-001"
+    }
+  ],
+  "doctorSchedules": [
+    {
+      "id": "SCH-1-1",
+      "clinicId": "CL-001",
+      "branchId": "BR-001",
+      "weekday": 0,
+      "isActive": true,
+      "doctorProfileId": "D-001",
+      "startTime": "09:00",
+      "endTime": "14:00"
+    },
+    {
+      "id": "SCH-1-2",
+      "clinicId": "CL-001",
+      "branchId": "BR-001",
+      "weekday": 2,
+      "isActive": true,
+      "doctorProfileId": "D-001",
+      "startTime": "09:00",
+      "endTime": "14:00"
+    },
+    {
+      "id": "SCH-1-3",
+      "clinicId": "CL-001",
+      "branchId": "BR-001",
+      "weekday": 4,
+      "isActive": true,
+      "doctorProfileId": "D-001",
+      "startTime": "09:00",
+      "endTime": "14:00"
+    },
+    {
+      "id": "SCH-2-1",
+      "clinicId": "CL-001",
+      "branchId": "BR-002",
+      "weekday": 0,
+      "isActive": true,
+      "doctorProfileId": "D-001",
+      "startTime": "14:00",
+      "endTime": "18:00"
+    },
+    {
+      "id": "SCH-2-2",
+      "clinicId": "CL-001",
+      "branchId": "BR-002",
+      "weekday": 2,
+      "isActive": true,
+      "doctorProfileId": "D-001",
+      "startTime": "14:00",
+      "endTime": "18:00"
+    },
+    {
+      "id": "SCH-2-3",
+      "clinicId": "CL-001",
+      "branchId": "BR-002",
+      "weekday": 4,
+      "isActive": true,
+      "doctorProfileId": "D-001",
+      "startTime": "14:00",
+      "endTime": "18:00"
+    },
+    {
+      "id": "SCH-3-1",
+      "clinicId": "CL-001",
+      "branchId": "BR-002",
+      "weekday": 0,
+      "isActive": true,
+      "doctorProfileId": "D-002",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-3-2",
+      "clinicId": "CL-001",
+      "branchId": "BR-002",
+      "weekday": 2,
+      "isActive": true,
+      "doctorProfileId": "D-002",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-3-3",
+      "clinicId": "CL-001",
+      "branchId": "BR-002",
+      "weekday": 4,
+      "isActive": true,
+      "doctorProfileId": "D-002",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-4-1",
+      "clinicId": "CL-002",
+      "branchId": "BR-003",
+      "weekday": 0,
+      "isActive": true,
+      "doctorProfileId": "D-003",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-4-2",
+      "clinicId": "CL-002",
+      "branchId": "BR-003",
+      "weekday": 2,
+      "isActive": true,
+      "doctorProfileId": "D-003",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-4-3",
+      "clinicId": "CL-002",
+      "branchId": "BR-003",
+      "weekday": 4,
+      "isActive": true,
+      "doctorProfileId": "D-003",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-5-1",
+      "clinicId": "CL-003",
+      "branchId": "BR-004",
+      "weekday": 0,
+      "isActive": true,
+      "doctorProfileId": "D-004",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-5-2",
+      "clinicId": "CL-003",
+      "branchId": "BR-004",
+      "weekday": 2,
+      "isActive": true,
+      "doctorProfileId": "D-004",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-5-3",
+      "clinicId": "CL-003",
+      "branchId": "BR-004",
+      "weekday": 4,
+      "isActive": true,
+      "doctorProfileId": "D-004",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-6-1",
+      "clinicId": "CL-004",
+      "branchId": "BR-005",
+      "weekday": 0,
+      "isActive": false,
+      "doctorProfileId": "D-005",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-6-2",
+      "clinicId": "CL-004",
+      "branchId": "BR-005",
+      "weekday": 2,
+      "isActive": false,
+      "doctorProfileId": "D-005",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    },
+    {
+      "id": "SCH-6-3",
+      "clinicId": "CL-004",
+      "branchId": "BR-005",
+      "weekday": 4,
+      "isActive": false,
+      "doctorProfileId": "D-005",
+      "startTime": "09:00",
+      "endTime": "16:00"
+    }
+  ],
+  "doctorScheduleExceptions": [
+    {
+      "id": "EX-001",
+      "clinicId": "CL-001",
+      "type": "leave",
+      "startAt": "2026-11-22T09:00",
+      "endAt": "2026-11-22T16:00",
+      "doctorProfileId": "D-001",
+      "branchId": "BR-001"
+    },
+    {
+      "id": "EX-002",
+      "clinicId": "CL-001",
+      "type": "unavailable",
+      "startAt": "2026-11-25T12:00",
+      "endAt": "2026-11-25T16:00",
+      "doctorProfileId": "D-002",
+      "branchId": "BR-002"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "APT-1041",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "branchId": "BR-001",
+      "serviceId": "S-101",
+      "status": "checkedin",
+      "scheduledStartAt": "2026-11-19T09:00",
+      "scheduledEndAt": "2026-11-19T09:30",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1042",
+      "clinicId": "CL-001",
+      "patientId": "P-001247",
+      "branchId": "BR-002",
+      "serviceId": "S-102",
+      "status": "checkedin",
+      "scheduledStartAt": "2026-11-19T09:30",
+      "scheduledEndAt": "2026-11-19T09:50",
+      "doctorProfileId": "D-002",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1043",
+      "clinicId": "CL-001",
+      "patientId": "P-001246",
+      "branchId": "BR-001",
+      "serviceId": "S-101",
+      "status": "checkedin",
+      "scheduledStartAt": "2026-11-19T10:00",
+      "scheduledEndAt": "2026-11-19T10:30",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1044",
+      "clinicId": "CL-001",
+      "patientId": "P-001245",
+      "branchId": "BR-001",
+      "serviceId": "S-102",
+      "status": "checkedin",
+      "scheduledStartAt": "2026-11-19T10:30",
+      "scheduledEndAt": "2026-11-19T10:50",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1045",
+      "clinicId": "CL-001",
+      "patientId": "P-001244",
+      "branchId": "BR-002",
+      "serviceId": "S-101",
+      "status": "confirmed",
+      "scheduledStartAt": "2026-11-19T11:00",
+      "scheduledEndAt": "2026-11-19T11:30",
+      "doctorProfileId": "D-002",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1046",
+      "clinicId": "CL-001",
+      "patientId": "P-001243",
+      "branchId": "BR-001",
+      "serviceId": "S-102",
+      "status": "scheduled",
+      "scheduledStartAt": "2026-11-19T11:30",
+      "scheduledEndAt": "2026-11-19T11:50",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1047",
+      "clinicId": "CL-001",
+      "patientId": "P-001242",
+      "branchId": "BR-001",
+      "serviceId": "S-101",
+      "status": "cancelled",
+      "scheduledStartAt": "2026-11-19T12:00",
+      "scheduledEndAt": "2026-11-19T12:30",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1048",
+      "clinicId": "CL-001",
+      "patientId": "P-001241",
+      "branchId": "BR-002",
+      "serviceId": "S-102",
+      "status": "noshow",
+      "scheduledStartAt": "2026-11-19T12:30",
+      "scheduledEndAt": "2026-11-19T12:50",
+      "doctorProfileId": "D-002",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1049",
+      "clinicId": "CL-001",
+      "patientId": "P-001240",
+      "branchId": "BR-001",
+      "serviceId": "S-101",
+      "status": "confirmed",
+      "scheduledStartAt": "2026-11-19T13:00",
+      "scheduledEndAt": "2026-11-19T13:30",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1050",
+      "clinicId": "CL-001",
+      "patientId": "P-001239",
+      "branchId": "BR-001",
+      "serviceId": "S-102",
+      "status": "scheduled",
+      "scheduledStartAt": "2026-11-19T13:30",
+      "scheduledEndAt": "2026-11-19T13:50",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1051",
+      "clinicId": "CL-002",
+      "patientId": "P-002001",
+      "branchId": "BR-003",
+      "serviceId": "S-101@CL-002",
+      "status": "confirmed",
+      "scheduledStartAt": "2026-11-19T11:00",
+      "scheduledEndAt": "2026-11-19T11:30",
+      "doctorProfileId": "D-003",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-2051",
+      "clinicId": "CL-003",
+      "patientId": "P-003001",
+      "branchId": "BR-004",
+      "serviceId": "S-301",
+      "status": "confirmed",
+      "scheduledStartAt": "2026-11-19T12:00",
+      "scheduledEndAt": "2026-11-19T12:30",
+      "doctorProfileId": "D-004",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "APT-1039",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "branchId": "BR-001",
+      "serviceId": "S-101",
+      "status": "checkedin",
+      "scheduledStartAt": "2026-11-18T10:00",
+      "scheduledEndAt": "2026-11-18T10:30",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-18"
+    },
+    {
+      "id": "APT-1052",
+      "clinicId": "CL-001",
+      "patientId": "P-001247",
+      "branchId": "BR-002",
+      "serviceId": "S-102",
+      "status": "scheduled",
+      "scheduledStartAt": "2026-11-20T10:30",
+      "scheduledEndAt": "2026-11-20T10:50",
+      "doctorProfileId": "D-002",
+      "createdAt": "2026-11-20"
+    }
+  ],
+  "appointmentStatusHistory": [
+    {
+      "id": "ASH-01",
+      "appointmentId": "APT-1041",
+      "fromStatus": null,
+      "toStatus": "scheduled",
+      "clinicId": "CL-001",
+      "changedAt": "2026-11-19T08:00",
+      "changedByUserId": "U-002"
+    },
+    {
+      "id": "ASH-02",
+      "appointmentId": "APT-1041",
+      "fromStatus": "scheduled",
+      "toStatus": "confirmed",
+      "clinicId": "CL-001",
+      "changedAt": "2026-11-19T08:10",
+      "changedByUserId": "U-002"
+    },
+    {
+      "id": "ASH-03",
+      "appointmentId": "APT-1041",
+      "fromStatus": "confirmed",
+      "toStatus": "checkedin",
+      "clinicId": "CL-001",
+      "changedAt": "2026-11-19T08:50",
+      "changedByUserId": "U-002"
+    },
+    {
+      "id": "ASH-04",
+      "appointmentId": "APT-1041",
+      "fromStatus": "checkedin",
+      "toStatus": "completed",
+      "clinicId": "CL-001",
+      "changedAt": "2026-11-19T09:25",
+      "changedByUserId": "U-002"
+    }
+  ],
+  "visits": [
+    {
+      "id": "V-0801",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "branchId": "BR-001",
+      "appointmentId": "APT-1041",
+      "status": "completed",
+      "doctorProfileId": "D-001",
+      "checkedInAt": "2026-11-19T08:50",
+      "startedAt": "2026-11-19T09:00",
+      "endedAt": "2026-11-19T09:25",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "V-0802",
+      "clinicId": "CL-001",
+      "patientId": "P-001247",
+      "branchId": "BR-002",
+      "appointmentId": "APT-1042",
+      "status": "completed",
+      "doctorProfileId": "D-002",
+      "checkedInAt": "2026-11-19T09:20",
+      "startedAt": "2026-11-19T09:30",
+      "endedAt": "2026-11-19T09:50",
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "V-0803",
+      "clinicId": "CL-001",
+      "patientId": "P-001246",
+      "branchId": "BR-001",
+      "appointmentId": "APT-1043",
+      "status": "progress",
+      "doctorProfileId": "D-001",
+      "checkedInAt": "2026-11-19T09:45",
+      "startedAt": "2026-11-19T10:00",
+      "endedAt": null,
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "V-0804",
+      "clinicId": "CL-001",
+      "patientId": "P-001245",
+      "branchId": "BR-001",
+      "appointmentId": "APT-1044",
+      "status": "waiting",
+      "doctorProfileId": "D-001",
+      "checkedInAt": "2026-11-19T10:10",
+      "startedAt": null,
+      "endedAt": null,
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "V-0805",
+      "clinicId": "CL-001",
+      "patientId": "P-001238",
+      "branchId": "BR-001",
+      "appointmentId": null,
+      "status": "waiting",
+      "doctorProfileId": "D-001",
+      "checkedInAt": "2026-11-19T10:15",
+      "startedAt": null,
+      "endedAt": null,
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "V-0799",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "branchId": "BR-001",
+      "appointmentId": "APT-1039",
+      "status": "completed",
+      "doctorProfileId": "D-001",
+      "checkedInAt": "2026-11-18T09:50",
+      "startedAt": "2026-11-18T10:00",
+      "endedAt": "2026-11-18T10:30",
+      "createdAt": "2026-11-18"
+    }
+  ],
+  "invoices": [
+    {
+      "id": "INV-00281",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "branchId": "BR-001",
+      "visitId": "V-0801",
+      "invoiceNumber": "INV-00281",
+      "status": "issued",
+      "subtotal": 600,
+      "discount": 0,
+      "total": 600,
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "INV-00282",
+      "clinicId": "CL-001",
+      "patientId": "P-001247",
+      "branchId": "BR-002",
+      "visitId": "V-0802",
+      "invoiceNumber": "INV-00282",
+      "status": "issued",
+      "subtotal": 200,
+      "discount": 0,
+      "total": 200,
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "INV-00283",
+      "clinicId": "CL-001",
+      "patientId": "P-001246",
+      "branchId": "BR-001",
+      "visitId": "V-0803",
+      "invoiceNumber": "INV-00283",
+      "status": "issued",
+      "subtotal": 400,
+      "discount": 0,
+      "total": 400,
+      "createdAt": "2026-11-19"
+    },
+    {
+      "id": "INV-00279",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "branchId": "BR-001",
+      "visitId": "V-0799",
+      "invoiceNumber": "INV-00279",
+      "status": "issued",
+      "subtotal": 400,
+      "discount": 0,
+      "total": 400,
+      "createdAt": "2026-11-18"
+    }
+  ],
+  "invoiceItems": [
+    {
+      "id": "II-01",
+      "invoiceId": "INV-00281",
+      "serviceId": "S-101",
+      "description": "كشف عام",
+      "qty": 1,
+      "unitPrice": 400,
+      "clinicId": "CL-001",
+      "doctorProfileId": "D-001",
+      "lineTotal": 400
+    },
+    {
+      "id": "II-02",
+      "invoiceId": "INV-00281",
+      "serviceId": "S-102",
+      "description": "متابعة",
+      "qty": 1,
+      "unitPrice": 200,
+      "clinicId": "CL-001",
+      "doctorProfileId": "D-001",
+      "lineTotal": 200
+    },
+    {
+      "id": "II-03",
+      "invoiceId": "INV-00282",
+      "serviceId": "S-102",
+      "description": "متابعة",
+      "qty": 1,
+      "unitPrice": 200,
+      "clinicId": "CL-001",
+      "doctorProfileId": "D-002",
+      "lineTotal": 200
+    },
+    {
+      "id": "II-04",
+      "invoiceId": "INV-00283",
+      "serviceId": "S-101",
+      "description": "كشف عام",
+      "qty": 1,
+      "unitPrice": 400,
+      "clinicId": "CL-001",
+      "doctorProfileId": "D-001",
+      "lineTotal": 400
+    },
+    {
+      "id": "II-05",
+      "invoiceId": "INV-00279",
+      "serviceId": "S-101",
+      "description": "كشف عام",
+      "qty": 1,
+      "unitPrice": 400,
+      "clinicId": "CL-001",
+      "doctorProfileId": "D-001",
+      "lineTotal": 400
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY-00451",
+      "clinicId": "CL-001",
+      "invoiceId": "INV-00281",
+      "amount": 400,
+      "method": "نقدي",
+      "paidAt": "2026-11-19T09:35",
+      "referenceNumber": "PAY-00451",
+      "status": "completed",
+      "createdByUserId": "U-002"
+    },
+    {
+      "id": "PAY-00452",
+      "clinicId": "CL-001",
+      "invoiceId": "INV-00282",
+      "amount": 200,
+      "method": "بطاقة",
+      "paidAt": "2026-11-19T10:00",
+      "referenceNumber": "PAY-00452",
+      "status": "completed",
+      "createdByUserId": "U-002"
+    },
+    {
+      "id": "PAY-00449",
+      "clinicId": "CL-001",
+      "invoiceId": "INV-00279",
+      "amount": 400,
+      "method": "محفظة",
+      "paidAt": "2026-11-18T10:35",
+      "referenceNumber": "PAY-00449",
+      "status": "completed",
+      "createdByUserId": "U-002"
+    }
+  ],
+  "paymentRefunds": [
+    {
+      "id": "RF-00021",
+      "clinicId": "CL-001",
+      "paymentId": "PAY-00449",
+      "amount": 100,
+      "status": "completed",
+      "reason": "تسوية خدمة غير منفذة",
+      "refundedAt": "2026-11-18",
+      "createdByUserId": "U-002"
+    }
+  ],
+  "medications": [
+    {
+      "id": "MED-01",
+      "genericName": "Amlodipine",
+      "brandName": "",
+      "strength": "5 mg",
+      "form": "tablet",
+      "isActive": true
+    }
+  ],
+  "auditLogs": [],
+  "patientAllergies": [
+    {
+      "id": "ALG-01",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "substance": "Penicillin",
+      "reaction": "Rash",
+      "severity": "moderate",
+      "isActive": true,
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "patientConditions": [
+    {
+      "id": "CON-01",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "onsetDate": "2022-05-01",
+      "status": "active",
+      "conditionName": "Hypertension",
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "doctorEducation": [
+    {
+      "id": "ED-01",
+      "clinicId": "CL-001",
+      "university": "Cairo University",
+      "faculty": "Faculty of Medicine",
+      "degree": "MB BCh",
+      "graduationYear": 2012,
+      "country": "Egypt",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "doctorExperiences": [
+    {
+      "id": "EX-01",
+      "clinicId": "CL-001",
+      "organization": "Al Nour Clinic",
+      "position": "Consultant",
+      "fromYear": 2021,
+      "toYear": null,
+      "isCurrent": true,
+      "description": "",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "vitalSigns": [
+    {
+      "id": "VS-01",
+      "clinicId": "CL-001",
+      "visitId": "V-0801",
+      "systolic": 120,
+      "diastolic": 80,
+      "heartRate": 74,
+      "respiratoryRate": 16,
+      "temperature": 36.8,
+      "oxygenSaturation": 98,
+      "weight": 78,
+      "height": 174,
+      "recordedAt": "2026-11-19T08:55",
+      "recordedBy": "U-002",
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "consultations": [
+    {
+      "id": "CS-01",
+      "clinicId": "CL-001",
+      "visitId": "V-0801",
+      "chiefComplaint": "Routine follow-up",
+      "history": "No new symptoms reported.",
+      "examination": "Patient appears well.",
+      "plan": "Continue current care plan.",
+      "followUpInstructions": "Review in two weeks.",
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "diagnoses": [
+    {
+      "id": "DX-01",
+      "clinicId": "CL-001",
+      "visitId": "V-0801",
+      "code": "I10",
+      "description": "Essential hypertension",
+      "type": "confirmed",
+      "isPrimary": true,
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "prescriptions": [
+    {
+      "id": "RX-01",
+      "clinicId": "CL-001",
+      "visitId": "V-0801",
+      "status": "issued",
+      "issuedAt": "2026-11-19T09:20",
+      "notes": "Take as directed.",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "diagnosticOrders": [
+    {
+      "id": "DO-01",
+      "clinicId": "CL-001",
+      "visitId": "V-0801",
+      "type": "lab",
+      "name": "CBC",
+      "instructions": "Routine blood count",
+      "status": "ordered",
+      "orderedAt": "2026-11-19T09:15",
+      "doctorProfileId": "D-001",
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "medicalAttachments": [
+    {
+      "id": "FILE-01",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "visitId": "V-0801",
+      "diagnosticOrderId": "DO-01",
+      "fileName": "CBC-result.pdf",
+      "description": "Laboratory result",
+      "source": "clinic",
+      "createdAt": "2026-11-19",
+      "mimeType": "application/pdf",
+      "fileSize": 24576,
+      "attachmentType": "result",
+      "uploadedByUserId": "U-002"
+    }
+  ],
+  "medicalUploadRequests": [
+    {
+      "id": "UR-01",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "visitId": "V-0801",
+      "instructions": "Upload a clear PDF or image.",
+      "expiresAt": "2026-12-01",
+      "status": "pending",
+      "attachmentType": "Previous laboratory results",
+      "requestedByUserId": "U-002",
+      "createdAt": "2026-11-19"
+    }
+  ],
+  "treatmentPlans": [
+    {
+      "id": "TP-01",
+      "clinicId": "CL-001",
+      "patientId": "P-001248",
+      "status": "active",
+      "createdAt": "2026-11-19",
+      "doctorProfileId": "D-001"
+    }
+  ],
+  "prescriptionItems": [
+    {
+      "id": "RXI-01",
+      "prescriptionId": "RX-01",
+      "medicationName": "Amlodipine 5 mg",
+      "dose": "1 tablet",
+      "frequency": "Once daily",
+      "route": "Oral",
+      "duration": "30 days",
+      "instructions": "After breakfast",
+      "clinicId": "CL-001",
+      "medicationId": "MED-01"
+    }
+  ],
+  "treatmentPlanItems": [
+    {
+      "id": "TPI-01",
+      "description": "CBC",
+      "status": "completed",
+      "dueDate": "2026-11-19",
+      "completedAt": "2026-11-19",
+      "treatmentPlanId": "TP-01",
+      "clinicId": "CL-001"
+    },
+    {
+      "id": "TPI-02",
+      "description": "Follow-up visit",
+      "status": "pending",
+      "dueDate": "2026-12-03",
+      "treatmentPlanId": "TP-01",
+      "clinicId": "CL-001"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+import React, {useEffect, useRef, useState} from 'react';
+import {Icon as BaseIcon} from './icons.jsx';
+import {useCore, CoreLink} from './App.jsx';
+import Editor from '../forms/Editor.jsx';
+
+export const Icon = BaseIcon;
+export function useModalFocus(ref){useEffect(()=>{const opener=document.activeElement;const previous=document.body.style.overflow;document.body.style.overflow='hidden';const focusable=()=>[...ref.current.querySelectorAll('button,a[href],input,select,textarea,[tabindex="0"]')].filter(el=>!el.disabled&&el.getClientRects().length);focusable()[0]?.focus();const trap=e=>{if(e.key!=='Tab')return;const items=focusable();if(!items.length)return;const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}};const node=ref.current;node.addEventListener('keydown',trap);return()=>{document.body.style.overflow=previous;node.removeEventListener('keydown',trap);if(opener?.isConnected)opener.focus();};},[ref]);}
+export const fmtMoney = value => new Intl.NumberFormat('en-EG',{maximumFractionDigits:2}).format(Number(value || 0));
+export const fmtDate = (date,lang='ar') => date ? new Intl.DateTimeFormat(lang==='ar'?'ar-EG':'en-GB',{day:'numeric',month:'short',year:'numeric'}).format(new Date(`${String(date).slice(0,10)}T12:00:00Z`)) : '—';
+export function Money({value}) {return <span className="money" dir="ltr">{fmtMoney(value)} <small>EGP</small></span>;}
+const statusWords = {
+  active:['نشط','Active','success'],inactive:['غير نشط','Inactive','neutral'],invited:['دعوة معلقة','Invited','warning'],
+  suspended:['موقوفة مؤقتًا','Suspended','warning'],closed:['مغلقة','Closed','neutral'],
+  scheduled:['مجدول','Scheduled','info'],confirmed:['مؤكد','Confirmed','success'],checkedin:['وصل','Checked in','warning'],cancelled:['ملغي','Cancelled','neutral'],noshow:['لم يحضر','No show','danger'],
+  waiting:['في الانتظار','Waiting','warning'],progress:['داخل الكشف','In consultation','info'],completed:['مكتمل','Completed','success'],
+  draft:['مسودة','Draft','neutral'],issued:['صادرة','Issued','info'],unpaid:['غير مدفوعة','Unpaid','danger'],partial:['مدفوعة جزئيًا','Partially paid','warning'],paid:['مدفوعة','Paid','success'],refunded:['مستردة','Refunded','neutral'],
+  pending:['معلق','Pending','warning'],opened:['تم فتحه','Opened','info'],expired:['منتهي','Expired','neutral'],revoked:['ملغي','Revoked','neutral'],
+  ordered:['مطلوب','Ordered','info'],moderate:['متوسط','Moderate','warning'],severe:['شديد','Severe','danger'],mild:['خفيف','Mild','info'],
+  consultant:['استشاري','Consultant','info'],specialist:['أخصائي','Specialist','info'],resident:['طبيب مقيم','Resident','neutral'],
+  provisional:['مبدئي','Provisional','warning'],differential:['تفريقي','Differential','neutral'],lab:['مختبر','Lab','info'],imaging:['أشعة','Imaging','info'],
+  leave:['إجازة','Leave','warning'],unavailable:['غير متاح','Unavailable','neutral'],extra:['إتاحة إضافية','Extra availability','success'],
+};
+export function Status({value, label}) {const {lang}=useCore();const item=statusWords[value] || [value,value,'neutral'];return <span className={`status status-${item[2]}`}><i/>{label || item[lang==='ar'?0:1]}</span>;}
+export function PageHeading({eyebrow,title,description,actions,back}) {const {tr}=useCore();return <div className="page-heading"><div>{back && <CoreLink to={back} className="back-link"><Icon name="chevron"/>{tr('عودة','Back')}</CoreLink>}{eyebrow && <p className="eyebrow">{eyebrow}</p>}<h1>{title}</h1>{description && <p className="page-description">{description}</p>}</div>{actions && <div className="heading-actions">{actions}</div>}</div>;}
+export function Section({title,caption,action,children,className=''}) {return <section className={`surface ${className}`}><header className="section-header"><div><h2>{title}</h2>{caption && <p>{caption}</p>}</div>{action}</header>{children}</section>;}
+export function Empty({title,text,compact=false}) {const {tr}=useCore();return <div className={`empty-state ${compact?'compact':''}`}><span className="empty-icon"><Icon name="search"/></span><strong>{title || tr('لا توجد بيانات بعد','No records yet')}</strong><p>{text || tr('ستظهر هنا السجلات عندما تتوفر.','Records will appear here when available.')}</p></div>;}
+export function DetailGrid({items}) {return <div className="detail-grid">{items.map(([label,value],i)=><div className="detail-field" key={`${label}-${i}`}><span>{label}</span><strong>{value ?? '—'}</strong></div>)}</div>;}
+export function Tabs({items,initial,onChange}) {const [selected,setSelected]=useState(initial || items[0]?.key);const {tr}=useCore();const current=items.find(item=>item.key===selected)||items[0];return <><div className="tabs" role="tablist" aria-label={tr('أقسام الصفحة','Page sections')}>{items.map(item=><button key={item.key} type="button" role="tab" aria-selected={current.key===item.key} className={current.key===item.key?'active':''} onClick={()=>{setSelected(item.key);onChange?.(item.key);}}>{item.label}</button>)}</div><div role="tabpanel" className="tab-content">{current?.content}</div></>;}
+export function Action({label,entity,fields,defaults,secondary=false,icon='plus',className=''}) {const {setDrawer}=useCore();return <button data-entity={entity} data-record={defaults?.id||undefined} data-mode={defaults?.id?'edit':'create'} className={`button ${secondary?'button-secondary':'button-primary'} ${className}`} onClick={()=>setDrawer({label,entity,fields,defaults})}><Icon name={icon}/>{label}</button>;}
+export function SmallLink({to,id,children}) {return <CoreLink to={to} id={id} className="row-link">{children}<Icon name="chevron"/></CoreLink>;}
+export function DataTable({rows,columns,search='',filters=[],pageSize=8,emptyTitle,toolbar=true,initialSort}) {
+  const {tr}=useCore();const [query,setQuery]=useState('');const [selected,setSelected]=useState({});const [page,setPage]=useState(1);
+  const terms=query.trim().toLocaleLowerCase();
+  let result=rows.filter(row=>(!terms || `${JSON.stringify(row)} ${columns.map(c=>typeof c.search==='function'?c.search(row):'').join(' ')}`.toLocaleLowerCase().includes(terms)) && filters.every(filter=>!selected[filter.key] || String(row[filter.key])===selected[filter.key]));
+  if(initialSort)result=[...result].sort(initialSort);
+  const pages=Math.max(1,Math.ceil(result.length/pageSize));const safePage=Math.min(page,pages);const visible=result.slice((safePage-1)*pageSize,safePage*pageSize);
+  const reset=()=>{setQuery('');setSelected({});setPage(1);};
+  return <>{toolbar && <div className="table-toolbar"><label className="table-search"><Icon name="search"/><input type="search" value={query} onChange={e=>{setQuery(e.target.value);setPage(1);}} placeholder={search || tr('بحث في السجلات…','Search records…')} aria-label={search || tr('بحث في السجلات','Search records')}/></label><div className="table-filters">{filters.map(filter=><label key={filter.key} className="filter-select"><span className="sr-only">{filter.label}</span><select value={selected[filter.key]||''} onChange={e=>{setSelected({...selected,[filter.key]:e.target.value});setPage(1);}}><option value="">{filter.label}</option>{filter.options.map(([value,label])=><option key={value} value={value}>{label}</option>)}</select></label>)}{(query || Object.values(selected).some(Boolean)) && <button className="reset-filter" onClick={reset}>{tr('مسح الفلاتر','Clear filters')}</button>}</div></div>}
+    <div className="responsive-table"><table><thead><tr>{columns.map(c=><th key={c.key} scope="col">{c.label}</th>)}</tr></thead><tbody>{visible.map(row=><tr key={row.id}>{columns.map(c=><td key={c.key} data-label={c.label} className={`${c.numeric?'numeric':''} ${c.secondary?'secondary-cell':''}`}>{c.render?c.render(row):row[c.key] ?? '—'}</td>)}</tr>)}</tbody></table>{!visible.length && <Empty title={emptyTitle || tr('لا توجد نتائج','No results')} text={terms || Object.values(selected).some(Boolean) ? tr('جرّب تعديل البحث أو الفلاتر.','Try changing the search or filters.') : undefined}/>}</div>
+    <footer className="table-footer"><span>{result.length ? `${(safePage-1)*pageSize+1}–${Math.min(safePage*pageSize,result.length)}`:'0'} {tr('من','of')} {result.length}</span><div className="pagination"><button disabled={safePage===1} onClick={()=>setPage(safePage-1)} aria-label={tr('الصفحة السابقة','Previous page')}>‹</button><span>{safePage} / {pages}</span><button disabled={safePage===pages} onClick={()=>setPage(safePage+1)} aria-label={tr('الصفحة التالية','Next page')}>›</button></div></footer></>;
+}
+
+export function PreviewDrawer(){return <Editor/>;}
